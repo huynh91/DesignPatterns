@@ -1,0 +1,70 @@
+@startuml
+
+title __ADAPTER's Class Diagram__\n
+
+  package adapter {
+    interface Duck {
+        {abstract} + quack()
+        {abstract} + fly()
+    }
+  }
+  
+
+  package adapter {
+    class DuckAdapter {
+        + DuckAdapter()
+        + gobble()
+        + fly()
+    }
+  }
+  
+
+  package adapter {
+    class DuckTestDrive {
+        {static} + main()
+        {static} - testDuck()
+    }
+  }
+  
+
+  package adapter {
+    class MallardDuck {
+        + quack()
+        + fly()
+    }
+  }
+  
+
+  package adapter {
+    interface Turkey {
+        {abstract} + gobble()
+        {abstract} + fly()
+    }
+  }
+  
+
+  package adapter {
+    class TurkeyAdapter {
+        + TurkeyAdapter()
+        + quack()
+        + fly()
+    }
+  }
+  
+
+  package adapter {
+    class WildTurkey {
+        + gobble()
+        + fly()
+    }
+  }
+  
+
+  DuckAdapter -up-|> Turkey
+  DuckAdapter o-- Duck : duck
+  MallardDuck -up-|> Duck
+  TurkeyAdapter -up-|> Duck
+  TurkeyAdapter o-- Turkey : turkey
+  WildTurkey -up-|> Turkey
+
+@enduml
