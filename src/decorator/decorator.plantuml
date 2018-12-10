@@ -1,0 +1,131 @@
+@startuml
+
+title __DECORATOR's Class Diagram__\n
+
+  package decorator {
+    abstract class Beverage {
+        ~ description : String
+        + getDescription()
+        {abstract} + cost()
+        + getSize()
+        + setSize()
+    }
+  }
+  
+
+  package decorator {
+    enum CoffeeSize {
+      TALL
+      GRANDE
+      VENTI
+    }
+  }
+
+  
+
+  package decorator {
+    class DarkRoast {
+        + DarkRoast()
+        + DarkRoast()
+        + cost()
+    }
+  }
+  
+
+  package decorator {
+    class Decaf {
+        + Decaf()
+        + Decaf()
+        + cost()
+    }
+  }
+  
+
+  package decorator {
+    class Expresso {
+        + Expresso()
+        + Expresso()
+        + cost()
+    }
+  }
+  
+
+  package decorator {
+    class HouseBlend {
+        + HouseBlend()
+        + HouseBlend()
+        + cost()
+    }
+  }
+
+
+  package decorator {
+    abstract class CondimentDecorator {
+        {abstract} + getDescription()
+        {abstract} + getSize()
+    }
+  }
+
+  package decorator {
+    class Mocha {
+        + Mocha()
+        + cost()
+        + getDescription()
+        + getSize()
+    }
+  }
+  
+
+  package decorator {
+    class Soy {
+        + Soy()
+        + getDescription()
+        + cost()
+        + getSize()
+    }
+  }
+  
+
+  package decorator {
+    class StarbuzzCoffee {
+        {static} + main()
+    }
+  }
+  
+
+  package decorator {
+    class SteamedMilk {
+        + getDescription()
+        + cost()
+        + getSize()
+    }
+  }
+  
+
+  package decorator {
+    class Whip {
+        + Whip()
+        + getDescription()
+        + cost()
+        + getSize()
+    }
+  }
+  
+
+  Beverage o-- CoffeeSize : size
+  Beverage +-down- CoffeeSize
+  CondimentDecorator -up-|> Beverage
+  DarkRoast -up-|> Beverage
+  Decaf -up-|> Beverage
+  Expresso -up-|> Beverage
+  HouseBlend -up-|> Beverage
+  Mocha -up-|> CondimentDecorator
+  Mocha o-- Beverage : beverage
+  Soy -up-|> CondimentDecorator
+  Soy o-- Beverage : beverage
+  SteamedMilk -up-|> CondimentDecorator
+  SteamedMilk o-- Beverage : beverage
+  Whip -up-|> CondimentDecorator
+  Whip o-- Beverage : beverage
+
+@enduml
