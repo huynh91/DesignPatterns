@@ -1,0 +1,116 @@
+@startuml
+
+title __STRATEGY's Class Diagram__\n
+
+  package strategy {
+    abstract class Duck {
+        + fly()
+        + quack()
+        {abstract} + display()
+        + swim()
+        + setFlyBehavior()
+        + setQuackBehavior()
+    }
+  }
+  
+
+  package strategy {
+    class DuckSim {
+        {static} + main()
+    }
+  }
+  
+
+  package strategy {
+    interface FlyBehavior {
+        {abstract} + fly()
+    }
+  }
+  
+
+  package strategy {
+    class FlyNoWay {
+        + fly()
+    }
+  }
+  
+
+  package strategy {
+    class FlyWithWings {
+        + fly()
+    }
+  }
+  
+
+  package strategy {
+    class MallardDuck {
+        + MallardDuck()
+        + display()
+    }
+  }
+  
+
+  package strategy {
+    class ModelDuck {
+        + ModelDuck()
+        + display()
+    }
+  }
+  
+
+  package strategy {
+    class MuteQuack {
+        + quack()
+    }
+  }
+  
+
+  package strategy {
+    class Quack {
+        + quack()
+    }
+  }
+  
+
+  package strategy {
+    interface QuackBehavior {
+        {abstract} + quack()
+    }
+  }
+  
+
+  package strategy {
+    class RocketFly {
+        + fly()
+    }
+  }
+  
+
+  package strategy {
+    class RubberDuck {
+        + RubberDuck()
+        + display()
+    }
+  }
+  
+
+  package strategy {
+    class Squeak {
+        + quack()
+    }
+  }
+  
+
+  Duck o-- FlyBehavior : flyBehavior
+  Duck o-- QuackBehavior : quackBehavior
+  FlyNoWay -up-|> FlyBehavior
+  FlyWithWings -up-|> FlyBehavior
+  MallardDuck -up-|> Duck
+  ModelDuck -up-|> Duck
+  MuteQuack -up-|> QuackBehavior
+  Quack -up-|> QuackBehavior
+  RocketFly -up-|> FlyBehavior
+  RubberDuck -up-|> Duck
+  Squeak -up-|> QuackBehavior
+
+@enduml
