@@ -1,0 +1,13 @@
+@startuml
+
+title __SINGLETON's Class Diagram__\n
+
+  package singleton {
+    class Singleton {
+        {static} - instance : Singleton
+        - Singleton()
+        {static} + getInstance()
+    }
+  }
+
+@enduml
